@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import TodoItem from './item/TodoItem'
-import CreateTodoField from '../../../create-todo-field/CreateTodoField'
-import { Reorder } from 'framer-motion'
+import CreateTodoField from '../../create-todo-field/CreateTodoField'
 
 const Home = () => {
   // Get todos
@@ -23,12 +22,6 @@ const Home = () => {
     setTodos(copy)
   }
 
-  // Reorder todo
-  const todoReorder = (todos) => {
-    localStorage.setItem('todos', JSON.stringify(todos))
-    setTodos(todos)
-  }
-
   return (
     <div className='text-white w-4/5 mx-auto'>
       <h1 className='text-center text-2xl font-medium mb-10'>
@@ -44,11 +37,8 @@ const Home = () => {
           Haven’t tasks yet...
         </p>
       }
-      <Reorder.Group 
+      <div
         className='overflow-y-scroll h-[400px]' 
-        axis='y' 
-        values={todos} 
-        onReorder={todoReorder} 
       >
         {todos.map((todo) => (
           <TodoItem 
@@ -58,7 +48,7 @@ const Home = () => {
             removeTodo={removeTodo} 
           />
         ))}
-      </Reorder.Group>
+      </div>
     </div>
   )
 }

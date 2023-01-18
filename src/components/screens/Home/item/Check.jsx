@@ -1,5 +1,5 @@
 import React from 'react'
-import {BsCheck} from 'react-icons/bs'
+import { BsCheck } from 'react-icons/bs'
 import classNames from 'classnames'
 
 const Check = ({ isCompleted }) => {
